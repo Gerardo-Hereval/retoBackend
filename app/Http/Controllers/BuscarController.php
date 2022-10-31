@@ -3,28 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Zip_code_json;
 
 class BuscarController extends Controller
 {
-    public function index () {
-        return view('principal');}
+    //funcion para validación y envío de codigo postal a la api
+    public function index (Request $request) {
 
-    public function store (Request $request) {
-
-        //dd($request->get('cp'));
-
+        //validacion
         $this->validate($request,[
-            'cp'=>'required'
+            'codigo_postal'=>'required|min:5|numeric'
         ]);
-        //dd($request->get('cp'));
-        $cp= $request->get('cp');
-        //dd($cp);
-        //dd($request->get($cp));
-        $zip_code=json_decode(Zip_code_json::where('zip_code',$cp)->get());
-       // $zip_code_json=json_decode($zip_code,true);
-        //dd($zip_code_json);
-       return $zip_code;
+
+        //obtener el zip_code que es la llave primaria de la tabla
+    $cp= $request->get('codigo_postal');
+        //redirecionando enviando la variable del codigo postal para su busqueda y muestreo
+       return redirect()->route('api',[$cp]);
     }
 
 }
