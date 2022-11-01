@@ -8,7 +8,7 @@ use App\Models\Zip_code;
 class ApiController extends Controller
 { //funcion para hacer el llamado a la base de datos mediante Eloquents
     public function index($zc){
-        $zip_code= new stdClass;
+        $zip_code= new stdClass();
         //realizamos la busqueda de información
         $zip_code=Zip_code::where('zip_code',$zc)->get();
         //lo ingresamos a un for por los codigos postales que tienen más asentamientos
