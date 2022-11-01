@@ -10,9 +10,9 @@ class ApiController extends Controller
 {
     //funcion para hacer el llamado a la base de datos mediante Route Model Binding
     public function index(Zip_code $zip_code){
-        dd($zip_code);
+        //dd($zip_code);
         //obtenemos la informacion de la base de datos y empezamos a organizar el json mediante arrays
-        $data = array("zip_code"=>$zip_code->zip_code,
+        @$data = array("zip_code"=>$zip_code->zip_code,
             "locality"=>$zip_code->ciudad,
             "federal_entity"=>array("key"=>$zip_code->clave_entidad,
                                     "name"=>$zip_code->entidad,
