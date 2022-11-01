@@ -13,7 +13,7 @@ class ApiController extends Controller
         $long=count($zip_code);
         for ($i = 0;$i<$long;++$i){
             //obtenemos la informacion de la base de datos y empezamos a organizar el json mediante arrays
-            $data = array("zip_code"=>$zip_code[$i]->zip_code,
+            $data[$i] = array("zip_code"=>$zip_code[$i]->zip_code,
                 "locality"=>$zip_code[$i]->ciudad,
                 "federal_entity"=>array("key"=>$zip_code[$i]->clave_entidad,
                     "name"=>$zip_code[$i]->entidad,
@@ -23,10 +23,10 @@ class ApiController extends Controller
                     "zona_type"=>$zip_code[$i]->zona_ubi_asent,
                     "senttlement_type"=>array("name"=>$zip_code[$i]->tipo_asentamiento)),
                 "municipality"=>array("key"=>$zip_code[$i]->clave_municipio,"name"=>$zip_code[$i]->municipio));
-
+            //mandamos como reponse el json de la información obtenida de la base de datos
+            return response()->json($data[$i]);
         }
-        //mandamos como reponse el json de la información obtenida de la base de datos
-        return response()->json($data);
+
     }
 
 }
