@@ -12,7 +12,7 @@ class ApiController extends Controller
         //realizamos la busqueda de información
         //stdClass::$zip_code;
          @$zip_code=null;
-         dd($zip_code);
+         //dd($zip_code);
         $zip_code=Zip_code::where('zip_code',$zc)->get();
         if(isset($zip_code)){
 
