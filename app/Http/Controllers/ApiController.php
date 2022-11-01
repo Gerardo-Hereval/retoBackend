@@ -10,8 +10,8 @@ class ApiController extends Controller
     public function index($zc){
         //realizamos la busqueda de información
         $zip_code=Zip_code::where('zip_code',$zc)->get();
-        $long=count($zip_code);
-        for ($i = 0;$i<$long;++$i){
+        //lo ingresamos a un for por los codigos postales que tienen más asentamientos
+        for ($i = 0,$long=count($zip_code);$i<$long;++$i){
             //obtenemos la informacion de la base de datos y empezamos a organizar el json mediante arrays
             $data[$i] = array("zip_code"=>$zip_code[$i]->zip_code,
                 "locality"=>$zip_code[$i]->ciudad,
