@@ -12,16 +12,16 @@ class ApiController extends Controller
     public function zip_codes(Zip_code $zip_code){
         //obtenemos la informacion de la base de datos y empezamos a organizar el json mediante arrays
 
-        $data = array("zip_code"=>$zip_code[0]['zip_code'],
-            "locality"=>$zip_code[0]['ciudad'],
-            "federal_entity"=>array("key"=>$zip_code[0]['clave_entidad'],
-                                    "name"=>$zip_code[0]['entidad'],
+        $data = array("zip_code"=>$zip_code['zip_code'],
+            "locality"=>$zip_code['ciudad'],
+            "federal_entity"=>array("key"=>$zip_code['clave_entidad'],
+                                    "name"=>$zip_code['entidad'],
                                     "code"=>null),
-            "settlements"=>array("key"=>$zip_code[0]['identificador_uni_asent'],
-                                "name"=>$zip_code[0]['asentamiento'],
-                                "zona_type"=>$zip_code[0]['zona_ubi_asent'],
-                                "senttlement_type"=>array("name"=>$zip_code[0]['tipo_asentamiento'])),
-            "municipality"=>array("key"=>$zip_code[0]['clave_municipio'],"name"=>$zip_code[0]['municipio']));
+            "settlements"=>array("key"=>$zip_code['identificador_uni_asent'],
+                                "name"=>$zip_code['asentamiento'],
+                                "zona_type"=>$zip_code['zona_ubi_asent'],
+                                "senttlement_type"=>array("name"=>$zip_code['tipo_asentamiento'])),
+            "municipality"=>array("key"=>$zip_code['clave_municipio'],"name"=>$zip_code['municipio']));
 
         //mandamos como reponse el json de la información obtenida de la base de datos
         return response()->json($data);
