@@ -20,13 +20,13 @@ class ApiController extends Controller
                     "locality"=>$zip_code[0]->ciudad,
                     "federal_entity"=>array("key"=>$zip_code[0]->clave_entidad,
                         "name"=>$zip_code[0]->entidad,
-                        "code"=>null));
-                    $data1[0]=array(
+                        "code"=>null),
+                    array(
                         "settlements"=>array("key"=>$zip_code[$i]->identificador_uni_asent,
                             "name"=>$zip_code[$i]->asentamiento,
                             "zona_type"=>$zip_code[$i]->zona_ubi_asent,
-                            "senttlement_type"=>array("name"=>$zip_code[$i]->tipo_asentamiento)));
-            $data2[0]=array("municipality"=>array("key"=>$zip_code[0]->clave_municipio,"name"=>$zip_code[0]->municipio));
+                            "senttlement_type"=>array("name"=>$zip_code[$i]->tipo_asentamiento))),
+            array("municipality"=>array("key"=>$zip_code[0]->clave_municipio,"name"=>$zip_code[0]->municipio)));
                 return response()->json($data[$i]);
             }
                 //mandamos como reponse el json de la información obtenida de la base de dato
