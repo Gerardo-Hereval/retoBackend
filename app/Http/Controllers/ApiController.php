@@ -8,7 +8,8 @@ use App\Models\Zip_code;
 class ApiController extends Controller
 { //funcion para hacer el llamado a la base de datos mediante Route Model Binding
     public function index($zc){
-        dd($zc);
+        $zip_code=Zip_code::where('zip_code',$zc)->get();
+        dd($zip_code);
         //obtenemos la informacion de la base de datos y empezamos a organizar el json mediante arrays
         $data = array("zip_code"=>$zip_code->zip_code,
             "locality"=>$zip_code->ciudad,
