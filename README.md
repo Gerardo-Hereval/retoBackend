@@ -1,4 +1,4 @@
-# RetoBackend
+# **RetoBackend
 
 
 ## Pasos de abordaje:
@@ -46,5 +46,5 @@ y más faciles de entender
 * Se realiza interface para selecionar codigo postal de manera más intuitiva y facil para un usario
 * Se deja la autenticación del usuario, para futuras actualizaciones o extenciones en el codigo
 * En general se realiza reto con pocas lineas de codigo
-* Se realizan comentarios generales dentro del codigo para mayor entendiemiento del mismo
+* Se realizan comentarios generales dentro del codigo para mayor entendiemiento del mismo**
 
