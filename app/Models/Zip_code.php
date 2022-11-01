@@ -9,9 +9,9 @@ class Zip_code extends Model
 {
     use HasFactory;
 
-    //protected $primaryKey = 'zip_code';
+    protected $primaryKey = 'zip_code';
 
-    public function getKeyName(){
-        return "zip_code";
-    }
+    //public function getKeyName(){
+    //    return "zip_code";
+    //}
 }
