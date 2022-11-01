@@ -14,8 +14,4 @@ class Zip_code extends Model
         return 'zip_code';
     }
 
-    protected $table = 'zip_codes';
-    protected $keyType='varchar';
-    protected $primaryKey = 'zip_code';
-
 }
