@@ -11,7 +11,7 @@ class Zip_code extends Model
 
     protected $primaryKey = 'zip_code';
 
-    //public function getKeyName(){
-    //    return "zip_code";
-    //}
+    public function getKeyName(){
+        return 'zip_code';
+    }
 }
