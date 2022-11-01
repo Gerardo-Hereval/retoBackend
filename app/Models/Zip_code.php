@@ -10,8 +10,8 @@ class Zip_code extends Model
     use HasFactory;
 
 
-    public function getRouteKeyName(){
-        return 'zip_code';
-    }
+    //public function getRouteKeyName(){
+    //    return 'zip_code';
+    //}
 
 }

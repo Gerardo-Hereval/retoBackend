@@ -6,12 +6,9 @@ namespace App\Http\Controllers;
 use App\Models\Zip_code;
 
 class ApiController extends Controller
-
-{
-    //funcion para hacer el llamado a la base de datos mediante Route Model Binding
-    public function index(Zip_code $zip_code ){
-        dd($zip_code);
-        if(isset($zip_code->records)){
+{ //funcion para hacer el llamado a la base de datos mediante Route Model Binding
+    public function index($zc){
+        dd($zc);
         //obtenemos la informacion de la base de datos y empezamos a organizar el json mediante arrays
         $data = array("zip_code"=>$zip_code->zip_code,
             "locality"=>$zip_code->ciudad,
@@ -22,7 +19,7 @@ class ApiController extends Controller
                                 "name"=>$zip_code->asentamiento,
                                 "zona_type"=>$zip_code->zona_ubi_asent,
                                 "senttlement_type"=>array("name"=>$zip_code->tipo_asentamiento)),
-            "municipality"=>array("key"=>$zip_code->clave_municipio,"name"=>$zip_code->municipio));}
+            "municipality"=>array("key"=>$zip_code->clave_municipio,"name"=>$zip_code->municipio));
         //mandamos como reponse el json de la información obtenida de la base de datos
         return response()->json($data);
 
