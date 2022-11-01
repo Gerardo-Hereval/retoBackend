@@ -22,9 +22,6 @@ class ApiController extends Controller
                         "code"=>null));
                 for ($i = 0,$long=count($zip_code);$i<$long;++$i){
                     $data1[0]=array(
-                        "federal_entity"=>array("key"=>$zip_code[$i]->clave_entidad,
-                            "name"=>$zip_code[$i]->entidad,
-                            "code"=>null),
                         "settlements"=>array("key"=>$zip_code[$i]->identificador_uni_asent,
                             "name"=>$zip_code[$i]->asentamiento,
                             "zona_type"=>$zip_code[$i]->zona_ubi_asent,
