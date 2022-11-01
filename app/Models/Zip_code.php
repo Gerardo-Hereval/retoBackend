@@ -9,7 +9,6 @@ class Zip_code extends Model
 {
     use HasFactory;
 
-    //protected $primaryKey = 'zip_code';
 
     public function getRouteKeyName(){
         return 'zip_code';
@@ -17,4 +16,6 @@ class Zip_code extends Model
 
     protected $table = 'zip_codes';
     protected $keyType='varchar';
+    protected $primaryKey = 'zip_code';
+
 }
