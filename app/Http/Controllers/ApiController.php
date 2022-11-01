@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 //modelos a ocupar
 use App\Models\Zip_code;
+use stdClass;
 
 class ApiController extends Controller
 { //funcion para hacer el llamado a la base de datos mediante Eloquents
     public function index($zc){
-        $zip_code= new \stdClass();
         //realizamos la busqueda de información
+        $zip_code='';
         $zip_code=Zip_code::where('zip_code',$zc)->get();
         //lo ingresamos a un for por los codigos postales que tienen más asentamientos
         for ($i = 0,$long=count($zip_code);$i<$long;++$i){
