@@ -12,7 +12,7 @@ class ApiController extends Controller
     public function zip_codes(Zip_code $zc){
         //obtenemos la informacion de la base de datos y empezamos a organizar el json mediante arrays
 
-        $data = array("zip_code"=>$zc['zip_code'],
+        @$data = array("zip_code"=>$zc['zip_code'],
             "locality"=>$zc['ciudad'],
             "federal_entity"=>array("key"=>$zc['clave_entidad'],
                                     "name"=>$zc['entidad'],
