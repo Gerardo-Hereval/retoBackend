@@ -10,7 +10,7 @@ class ApiController extends Controller
 { //funcion para hacer el llamado a la base de datos mediante Eloquents
     public function index($zc){
         //realizamos la busqueda de información
-        stdClass::$zip_code;
+        //stdClass::$zip_code;
         @$zip_code=Zip_code::where('zip_code',$zc)->get();
         if(isset($zip_code)){
 
