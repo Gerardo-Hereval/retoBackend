@@ -24,9 +24,8 @@ class ApiController extends Controller
                     "senttlement_type"=>array("name"=>$zip_code[$i]->tipo_asentamiento)),
                 "municipality"=>array("key"=>$zip_code[$i]->clave_municipio,"name"=>$zip_code[$i]->municipio));
             //mandamos como reponse el json de la información obtenida de la base de datos
-            return response()->json($data[$i]);
         }
-
+        return response()->json($data);
     }
 
 }
