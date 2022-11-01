@@ -14,4 +14,6 @@ class Zip_code extends Model
     public function getRouteKeyName(){
         return 'zip_code';
     }
+
+    protected $table = 'zip_codes';
 }

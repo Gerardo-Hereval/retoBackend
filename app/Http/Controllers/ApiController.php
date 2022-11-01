@@ -8,9 +8,9 @@ use App\Models\Zip_code;
 class ApiController extends Controller
 
 {
-    public  $zip_code;
     //funcion para hacer el llamado a la base de datos mediante Route Model Binding
     public function index(Zip_code $zip_code){
+        if(isset($zip_code->records))
         //obtenemos la informacion de la base de datos y empezamos a organizar el json mediante arrays
         $data = array("zip_code"=>$zip_code->zip_code,
             "locality"=>$zip_code->ciudad,
