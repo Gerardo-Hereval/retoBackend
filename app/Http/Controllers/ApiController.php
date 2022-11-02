@@ -13,6 +13,7 @@ class ApiController extends Controller
         //realizamos la busqueda de información
         $zip_code = new Zip_code;
         $zip_code = Zip_code::where('zip_code',$zc)->get();
+        if(isset($zip_code)){
         //obtenemos la informacion de la base de datos y empezamos a organizar el json mediante arrays
         $data= array("zip_code" => $zip_code[0]->zip_code,
             "locality" => $zip_code[0]->ciudad,
@@ -28,6 +29,8 @@ class ApiController extends Controller
         };
         //continuamos obteniendo la data en otro array
         $data2=array("municipality" => array("key" => $zip_code[0]->clave_municipio, "name" => $zip_code[0]->municipio));
+        }
+        $zip_code=null;
         //creamos una variable con las arrays para imprimirlo
         $datas = $data + array("settlements"=>$data1) + $data2;
         return response()->json($datas);
