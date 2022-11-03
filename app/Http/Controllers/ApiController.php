@@ -10,12 +10,15 @@ use stdClass;
 
 class ApiController extends Controller
 {
+    /**
+     * Display the specified resource.
+     *
+     * @param  stdClass  $zip_code
+     * @return \Illuminate\Http\Response
+     */
     public function index($zc)
     {
         //realizamos la busqueda de información
-        /** @param stdClass $zip_code
-            @return \Illuminate\Http\Response
-         */
         //$zip_code = new stdClass();
         $zip_code = Zip_code::where('zip_code',$zc)->get();
         if(isset($zip_code)){
