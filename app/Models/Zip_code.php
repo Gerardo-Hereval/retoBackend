@@ -9,6 +9,11 @@ class Zip_code extends Model
 {
     use HasFactory;
 
+    /**
+     * Display the specified resource.
+     *
+     * @param  stdClass  $zip
+     */
 
     protected $primaryKey= 'zip_code';
 
