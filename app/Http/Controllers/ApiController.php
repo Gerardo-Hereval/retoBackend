@@ -11,6 +11,7 @@ class ApiController extends Controller
     public function index($zc)
     {
         //realizamos la busqueda de información
+        /** @var object $zip_code */
         $zip_code = new Zip_code;
         $zip_code = Zip_code::where('zip_code',$zc)->get();
         if(isset($zip_code)){
