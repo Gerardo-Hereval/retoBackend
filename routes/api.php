@@ -5,7 +5,6 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ApiController;
 
-use App\Models\Zip_code;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,5 +22,3 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 //aqui llamamos a url mediante Route model binding y se le coloca un apodo por si es necesario cambiar la estructura de la url no sea necesario modificar el demas codigo
 Route::get('/zip_codes/{zip_code}',[ApiController::class,'index'])->name('api');
-
-//Route::get('/zip_codes/{zip_code:zip_code}',[ApiController::class,'zip_codes'])->name('api');

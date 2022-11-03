@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('zip_codes', function (Blueprint $table) {
-            $table->string('zip_code');
+        Schema::create('prueba', function (Blueprint $table) {
+            $table->string('id_zp');
             $table->string('asentamiento');
             $table->string('tipo_asentamiento');
             $table->string('municipio');
@@ -40,6 +40,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('zip_codes');
+        Schema::dropIfExists('prueba');
     }
 };

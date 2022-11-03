@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('settlement_types', function (Blueprint $table) {
+        Schema::create('municipalitys', function (Blueprint $table) {
             $table->string('zip_code');
-            $table->json('settlement_type');
-            $table->timestamps();
+            $table->string('c_mnpio');
+            $table->string('d_mnpio');
         });
     }
 
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('settlement_types');
+        Schema::dropIfExists('municipalitys');
     }
 };
