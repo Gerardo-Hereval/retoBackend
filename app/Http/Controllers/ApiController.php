@@ -19,6 +19,7 @@ class ApiController extends Controller
          * Display the specified resource.
          *
          * @param  stdClass  $zip_code
+         * @param string $zc
          * @return Response
          */
         //realizamos la busqueda de información
