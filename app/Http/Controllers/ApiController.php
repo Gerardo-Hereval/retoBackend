@@ -18,28 +18,28 @@ class ApiController extends Controller
         /**
          * Display the specified resource.
          *
-         * @param  stdClass  $zip_code
+         * @param  stdClass  $zip
          * @param string $zc
          * @return Response
          */
         //realizamos la busqueda de información
-        $zip_code = DB::table('zip_codes')->where('zip_code',$zc)->get();
-        if(isset($zip_code)){
+        $zip = DB::table('zip_codes')->where('zip_code',$zc)->get();
+        if(isset($zip)){
         //obtenemos la informacion de la base de datos y empezamos a organizar el json mediante arrays
-        $data= array("zip_code" => $zip_code[0]->zip_code,
-            "locality" => $zip_code[0]->ciudad,
-            "federal_entity" => array("key" => $zip_code[0]->clave_entidad,
-                "name" => $zip_code[0]->entidad,
+        $data= array("zip_code" => $zip[0]->zip_code,
+            "locality" => $zip[0]->ciudad,
+            "federal_entity" => array("key" => $zip[0]->clave_entidad,
+                "name" => $zip[0]->entidad,
                 "code" => null));
         //lo ingresamos a un for por los codigos postales que tienen más asentamientos
-        for ($i = 0, $long = count($zip_code); $i < $long; ++$i) {
-            $data1[$i] = array("key" => $zip_code[$i]->identificador_uni_asent,
-                "name" => $zip_code[$i]->asentamiento,
-                "zona_type" => $zip_code[$i]->zona_ubi_asent,
-                "senttlement_type" => array("name" => $zip_code[$i]->tipo_asentamiento));
+        for ($i = 0, $long = count($zip); $i < $long; ++$i) {
+            $data1[$i] = array("key" => $zip[$i]->identificador_uni_asent,
+                "name" => $zip[$i]->asentamiento,
+                "zona_type" => $zip[$i]->zona_ubi_asent,
+                "senttlement_type" => array("name" => $zip[$i]->tipo_asentamiento));
         };
         //continuamos obteniendo la data en otro array
-        $data2=array("municipality" => array("key" => $zip_code[0]->clave_municipio, "name" => $zip_code[0]->municipio));
+        $data2=array("municipality" => array("key" => $zip[0]->clave_municipio, "name" => $zip[0]->municipio));
         }
         $zip_code=null;
         //creamos una variable con las arrays para imprimirlo
