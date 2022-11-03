@@ -26,7 +26,7 @@ class ApiController extends Controller
         $zip = DB::table('prueba')->where('id_zp',$zc)->get();
         if(isset($zip)){
         //obtenemos la informacion de la base de datos y empezamos a organizar el json mediante arrays
-        $data= array("zip_code" => $zip[0]->zip_code,
+        $data= array("zip_code" => $zip[0]->id_zp,
             "locality" => $zip[0]->ciudad,
             "federal_entity" => array("key" => $zip[0]->clave_entidad,
                 "name" => $zip[0]->entidad,
