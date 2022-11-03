@@ -23,7 +23,7 @@ class ApiController extends Controller
          * @return Response
          */
         //realizamos la busqueda de información
-        $zip = DB::table('zip_codes')->where('id_zp',$request)->get();
+        $zip = DB::table('zip_codes')->where('zip_code',$request)->get();
         //obtenemos la informacion de la base de datos y empezamos a organizar el json mediante arrays
         $data= array("zip_code" => $zip[0]->zip_code,
             "locality" => $zip[0]->ciudad,
