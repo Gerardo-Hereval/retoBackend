@@ -12,15 +12,15 @@ class Zip_code extends Model
     /**
      * Display the specified resource.
      *
-     * @param  stdClass  $zip
+     * @param  stdClass  $zip_code
      */
 
-    protected $primaryKey= 'zip_code';
+    //protected $primaryKey= 'zip_code';
 
-    public function getRouteKeyName(){
-        return 'zip_code';
-    }
+    //public function getRouteKeyName(){
+    //return 'zip_code';
+    //}
 
-    protected $table = 'zip_codes';
+    //protected $table = 'zip_codes';
 
 }
