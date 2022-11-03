@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 //modelos a ocupar
 use App\Models\Zip_code;
+use stdClass;
 
 
 class ApiController extends Controller
@@ -12,7 +13,7 @@ class ApiController extends Controller
     {
         //realizamos la busqueda de información
         /** @var stdClass $zip_code */
-        $zip_code = new \stdClass();
+        $zip_code = new stdClass();
         $zip_code = Zip_code::where('zip_code',$zc)->get();
         if(isset($zip_code)){
         //obtenemos la informacion de la base de datos y empezamos a organizar el json mediante arrays
