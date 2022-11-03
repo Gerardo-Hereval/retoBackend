@@ -10,16 +10,16 @@ use stdClass;
 
 class ApiController extends Controller
 {
-    /**
-     * Display the specified resource.
-     *
-     * @param  stdClass  $zip_code
-     * @return \Illuminate\Http\Response
-     */
+
     public function index($zc)
     {
+        /**
+         * Display the specified resource.
+         *
+         * @param  stdClass  $zip_code
+         * @return \Illuminate\Http\Response
+         */
         //realizamos la busqueda de información
-        //$zip_code = new stdClass();
         $zip_code = Zip_code::where('zip_code',$zc)->get();
         if(isset($zip_code)){
         //obtenemos la informacion de la base de datos y empezamos a organizar el json mediante arrays
