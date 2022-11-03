@@ -13,17 +13,17 @@ use stdClass;
 class ApiController extends Controller
 {
 
-    public function index($zc)
+    public function index($request)
     {
         /**
          * Display the specified resource.
          *
-         * @param  stdClass  $zip
+         * @param  stdClass  $zip_code
          * @param string $zc
          * @return Response
          */
         //realizamos la busqueda de información
-        $zip = DB::table('prueba')->where('id_zp',$zc)->get();
+        $zip = DB::table('prueba')->where('id_zp',$request)->get();
         if(isset($zip)){
         //obtenemos la informacion de la base de datos y empezamos a organizar el json mediante arrays
         $data= array("zip_code" => $zip[0]->id_zp,
@@ -41,10 +41,10 @@ class ApiController extends Controller
         //continuamos obteniendo la data en otro array
         $data2=array("municipality" => array("key" => $zip[0]->clave_municipio, "name" => $zip[0]->municipio));
         }
-        $zip_code=null;
+        //$zip_code=null;
         //creamos una variable con las arrays para imprimirlo
-        $datas = $data + array("settlements"=>$data1) + $data2;
-        return response()->json($datas);
+        $zip_code = $data + array("settlements"=>$data1) + $data2;
+        return response()->json($zip_code);
     }
     //mandamos como reponse el json de la información obtenida de la base de dato
 }
